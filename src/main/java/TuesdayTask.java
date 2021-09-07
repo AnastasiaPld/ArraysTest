@@ -1,9 +1,14 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TuesdayTask {
     public static void main(String[] args) {
         int[] array = {1, 1, 2, 3, 3, 4, 5, 5, 48};
-//        System.out.println(Arrays.toString(printOnlyDuplicate(array)));
+
+
+        duplicateMethod2(array);
     }
 
 
@@ -53,27 +58,46 @@ public class TuesdayTask {
     }
 
 
-    public int[] printOnlyDuplicate(int[] arrWithDuplicates) {
-        int dup = 0;
-        for (int i = 0; i < arrWithDuplicates.length; i++) {
-            for (int j = i + 1; j < arrWithDuplicates.length - dup; j++) {
-                if (arrWithDuplicates[i] == (arrWithDuplicates[j])) {
-                    while (j != arrWithDuplicates.length - dup - 1
-                            && arrWithDuplicates[arrWithDuplicates.length - dup - 1] == (arrWithDuplicates[j])) {
-                        dup++;
-                    }
-                    int tmp = arrWithDuplicates[arrWithDuplicates.length - dup - 1];
-                    arrWithDuplicates[arrWithDuplicates.length - dup - 1] = arrWithDuplicates[j];
-                    arrWithDuplicates[j] = tmp;
-                    dup++;
-                }
+    public static void printNewDuplicates(int[] arrWithDuplicates) {
+        int len = arrWithDuplicates.length;
+        int temp[] = new int[arrWithDuplicates.length];
+        int j = 0;
+        for (int i = 0; i < len - 1; i++) {
+            if (arrWithDuplicates[i] != arrWithDuplicates[i + 1]) {
+                temp[j++] = arrWithDuplicates[i];
+
             }
 
+            ArrayList<int[]> elements = new ArrayList<>();
+            elements.add(temp);
+
+//            int newLength =temp[j++];
+//            if (arrWithDuplicates.length < newLength) {
+//                System.out.println(Arrays.toString(arrWithDuplicates));
+//            } else {
+//                int[] truncated = new int[newLength];
+//                System.arraycopy(arrWithDuplicates, 0, truncated, 0, newLength);
+//                System.out.println(Arrays.toString(truncated));
+//            }
+
+            System.out.println(elements);
         }
-        return Arrays.copyOf(arrWithDuplicates, arrWithDuplicates.length - dup);
 
     }
-}
+    public static void duplicateMethod2(int[] arr) {
+        Set<Integer> numbersDuplication = new HashSet<>();
+        for (int arrays : arr) {
+            if (numbersDuplication.add(arrays) == false) {
+                System.out.print(arrays + " ");
+
+
+            }
+        }
+    }
+    }
+
+
+
 
 
 

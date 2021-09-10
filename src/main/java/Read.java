@@ -35,7 +35,7 @@ public class Read {
 
             sorting.sortArray(arrayInt);
 //            System.out.println(Arrays.toString(sorting.printOnlyDuplicate(arrayInt)));
-//            sorting.printSortedArray(arrayInt);
+         sorting.printSortedArray(arrayInt);
 //            sorting.printDuplicate(arrayInt);
 //            sorting.printNewArray(arrayInt);
 
